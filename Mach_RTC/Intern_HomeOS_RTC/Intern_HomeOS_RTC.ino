@@ -20,14 +20,7 @@ void setup()
     // put your setup code here, to run once:
     Wire.begin();
     Serial.begin(9600);
-    Serial.println("you want set time(y/n): ");
-    while (!Serial.available()) delay(10);
-    if (Serial.read() == 'y' || Serial.read() == "Y")
-    {
-        Serial.read();
-        setTime();
-        printTime();
-    }
+    
 }
 
 void printTime()
@@ -171,5 +164,22 @@ byte readByte()
 
 void loop() {
     // put your main code here, to run repeatedly:
-    
+    Serial.println("you want set time(y/n): ");
+    while (!Serial.available()) delay(10);
+    if (Serial.read() == 'y' || Serial.read() == "Y")
+    {
+        Serial.read();
+        setTime();
+        check = 1;
+    }
+    while (check == 1)
+    {
+        printTime();
+        Serial.println();
+        delay(1000);
+        if (Serial.available() > 0)
+        {
+            check = 0;
+        }
+    }
 }
