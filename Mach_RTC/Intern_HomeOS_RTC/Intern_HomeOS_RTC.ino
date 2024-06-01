@@ -6,7 +6,6 @@ File file;
 char *logFile = "dateTime.txt";
 
 bool check;
-bool flag;
 const int DS1307 = 0x68;
 const char* days[] =
 { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -43,15 +42,13 @@ void setup()
     delay(1000);
     SD.remove(logFile);
     file = SD.open(logFile, FILE_WRITE);
-    if (file)
+    if (!file)
     {
         Serial.println("log file missing");
-        flag = false;
     }
     else
     {
         Serial.println("prepare to receive data");
-        flag = true;
     }
     file.close();
 }
@@ -76,6 +73,7 @@ void printTime()
     Serial.print(bufferMinute);
     Serial.print(':');
     Serial.print(bufferSecond);
+    writeLog();
 }
 
 void readTime()
@@ -195,8 +193,6 @@ byte readByte()
 
 void writeLog()
 {
-    if (flag == true)
-    {
         file = SD.open(logFile, FILE_WRITE);
         file.print("the current date: ");
         file.print(days[weekDay - 2]);
@@ -214,8 +210,8 @@ void writeLog()
         file.print(':');
         file.println(bufferSecond);
         file.close();
-    }
 }
+
 void loop() {
     // put your main code here, to run repeatedly:
     Serial.println("you want set time(y/n): ");
@@ -230,9 +226,7 @@ void loop() {
     {
         printTime();
         Serial.println();
-
         delay(1000);
-        writeLog();
         if (Serial.available() > 0)
         {
             check = false;
