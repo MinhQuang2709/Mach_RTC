@@ -1,6 +1,12 @@
 #include <Wire.h>
+#include <SPI.h>
+#include <SD.h>
+
+File file;
+char *logFile = "dateTime.txt";
 
 bool check;
+bool flag;
 const int DS1307 = 0x68;
 const char* days[] =
 { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -15,18 +21,43 @@ byte day = 0;
 byte month = 0;
 byte year = 0;
 
+char bufferMinute[3];
+char bufferSecond[3];
+
 void setup() 
 {
     // put your setup code here, to run once:
     Wire.begin();
     Serial.begin(9600);
-    
+    while (!Serial)
+    {
+
+    }
+    Serial.println("Initializing SD card...");
+    delay(1000);
+    if (!SD.begin(4))
+    {
+        Serial.println("faile to connect with SD card");
+    }
+    Serial.println("initialization done");
+    delay(1000);
+    SD.remove(logFile);
+    file = SD.open(logFile, FILE_WRITE);
+    if (file)
+    {
+        Serial.println("log file missing");
+        flag = false;
+    }
+    else
+    {
+        Serial.println("prepare to receive data");
+        flag = true;
+    }
+    file.close();
 }
 
 void printTime()
 {
-    char bufferMinute[3];
-    char bufferSecond[3];
     readTime();
     Serial.print("the current date: ");
     Serial.print(days[weekDay - 2]);
@@ -162,6 +193,29 @@ byte readByte()
     return reading;
 }
 
+void writeLog()
+{
+    if (flag == true)
+    {
+        file = SD.open(logFile, FILE_WRITE);
+        file.print("the current date: ");
+        file.print(days[weekDay - 2]);
+        file.print(" - ");
+        file.print(day);
+        file.print('/');
+        file.print(months[month - 1]);
+        file.print('/');
+        file.print("20");
+        file.print(year);
+        file.print(" - the current time: ");
+        file.print(hour);
+        file.print(':');
+        file.print(bufferMinute);
+        file.print(':');
+        file.println(bufferSecond);
+        file.close();
+    }
+}
 void loop() {
     // put your main code here, to run repeatedly:
     Serial.println("you want set time(y/n): ");
@@ -170,16 +224,18 @@ void loop() {
     {
         Serial.read();
         setTime();
-        check = 1;
+        check = true;
     }
-    while (check == 1)
+    while (check == true)
     {
         printTime();
         Serial.println();
+
         delay(1000);
+        writeLog();
         if (Serial.available() > 0)
         {
-            check = 0;
+            check = false;
         }
     }
 }
