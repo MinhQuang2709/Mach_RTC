@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Intern_HomeOS_RTC", "Intern_HomeOS_RTC.vcxproj", "{A14ABCEB-A967-4323-A58C-0FCED96AE647}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reset", "..\..\..\Users\LENOVO\OneDrive\Documents\arduino test\reset\reset\reset.vcxproj", "{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Debug|ARM.Build.0 = Debug|ARM
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Debug|ARM.Deploy.0 = Debug|ARM
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Debug|ARM64.Build.0 = Debug|ARM64
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Release|ARM.ActiveCfg = Release|ARM
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Release|ARM.Build.0 = Release|ARM
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Release|ARM.Deploy.0 = Release|ARM
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Release|ARM64.ActiveCfg = Release|ARM64
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Release|ARM64.Build.0 = Release|ARM64
+		{A14ABCEB-A967-4323-A58C-0FCED96AE647}.Release|ARM64.Deploy.0 = Release|ARM64
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Debug|ARM.ActiveCfg = Debug|ARM
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Debug|ARM.Build.0 = Debug|ARM
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Debug|ARM.Deploy.0 = Debug|ARM
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Debug|ARM64.Build.0 = Debug|ARM64
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Release|ARM.ActiveCfg = Release|ARM
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Release|ARM.Build.0 = Release|ARM
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Release|ARM.Deploy.0 = Release|ARM
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Release|ARM64.ActiveCfg = Release|ARM64
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Release|ARM64.Build.0 = Release|ARM64
+		{20D342A4-BB57-47E6-BE7D-B7E70F0F1459}.Release|ARM64.Deploy.0 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F44A62B-BAF2-4089-B9CD-E652FA18007E}
+	EndGlobalSection
+EndGlobal

@@ -1,2 +1,4 @@
 #pragma once
-void readByte();
+#include <Arduino.h>
+
+extern byte readByte();

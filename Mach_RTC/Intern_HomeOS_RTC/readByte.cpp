@@ -1,6 +1,6 @@
 #include "readByte.h"
 
-void readByte()
+byte readByte()
 {
     while (!Serial.available() > 0) delay(10);
 

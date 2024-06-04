@@ -1,9 +1,7 @@
-#include <Wire.h>
+﻿#include <Wire.h>
 #include <SPI.h>
 #include <SD.h>
 #include <RTClib.h>
-#include <Arduino.h>
-#include "readByte.h"
 
 File file;
 const int DS1307 = 0x68;
@@ -37,18 +35,36 @@ void setup()
         return;
     }
 
-    if (!rtc.begin())
+    if (!rtc.begin()) 
     {
         Serial.println("failed to init RTC");
     }
 
-    if (!rtc.isrunning())
+    if (!rtc.isrunning()) 
     {
         Serial.println("RTC is not running! Make sure you have set the time for the RTC.");
     }
 
     Serial.println("The SD card and RTC have been initialized");
-    readByte();
+}
+
+byte readByte()
+{
+    while (!Serial.available() > 0) delay(10);
+
+    byte reading = 0;
+    byte inputByte = Serial.read();
+    while (inputByte != '\n')
+    {
+        if (inputByte >= '0' && inputByte <= '9')
+        {
+            reading = reading * 10 + (inputByte - '0');
+        }
+        else;
+        inputByte = Serial.read();
+    }
+    Serial.flush();
+    return reading;
 }
 
 void setTime()
@@ -120,6 +136,11 @@ void printTime(DateTime dt)
     Serial.println();
 }
 
+byte decToBcd(byte val)
+{
+    return ((val / 10 * 16) + (val % 10));
+}
+
 void loop()
 {
     Serial.println("you want set time(y/n): ");
@@ -133,7 +154,7 @@ void loop()
     while (check == true)
     {
         DateTime now = rtc.now();
-        Serial.print("The current dateTime: ");
+        Serial.print("The current date and time: ");
         printTime(now);
 
         String dataString = "";
@@ -151,10 +172,6 @@ void loop()
 
         File dataFile = SD.open("dateTime.txt", FILE_WRITE);
         if (dataFile) {
-
-
-
-
             dataFile.println(dataString);
             dataFile.close();
         }
