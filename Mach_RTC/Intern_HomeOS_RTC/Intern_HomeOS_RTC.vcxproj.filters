@@ -19,12 +19,18 @@
     <ClCompile Include="readByte.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="setTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.Intern_HomeOS_RTC.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="readByte.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="setTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

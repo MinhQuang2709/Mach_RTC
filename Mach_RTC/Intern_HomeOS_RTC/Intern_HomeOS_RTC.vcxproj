@@ -79,8 +79,10 @@
       <DeploymentContent>true</DeploymentContent>
     </ClCompile>
     <ClCompile Include="readByte.cpp" />
+    <ClCompile Include="setTime.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="setTime.h" />
     <ClInclude Include="readByte.h" />
     <ClInclude Include="__vm\.Intern_HomeOS_RTC.vsarduino.h" />
   </ItemGroup>
@@ -88,9 +90,9 @@
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <IncludePath>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\tools\sdk\include;$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\tools\sdk\lwip2\include;$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\cores\\esp8266;$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\variants\\generic;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\xtensa-lx106-elf\include\c++\10.3.0;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\xtensa-lx106-elf\include\c++\10.3.0\xtensa-lx106-elf;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\xtensa-lx106-elf\include\c++\10.3.0\backward;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\lib\gcc\xtensa-lx106-elf\10.3.0\include;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\lib\gcc\xtensa-lx106-elf\10.3.0\include-fixed;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\xtensa-lx106-elf\include;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\Wire;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\SPI;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\SD\src;$(ProjectDir)..\..\..\Users\LENOVO\OneDrive\Documents\arduino test\libraries\RTClib\src</IncludePath>
-    <RemoteCCompileToolExe>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\3.1.0-gcc10.3-e5f9fec\bin\xtensa-lx106-elf-g++</RemoteCCompileToolExe>
-    <RemoteCppCompileToolExe>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\3.1.0-gcc10.3-e5f9fec\bin\xtensa-lx106-elf-g++</RemoteCppCompileToolExe>
+    <IncludePath>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire\src;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire\src\utility</IncludePath>
+    <RemoteCCompileToolExe>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</RemoteCCompileToolExe>
+    <RemoteCppCompileToolExe>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</RemoteCppCompileToolExe>
     <ValidateArchitecture>false</ValidateArchitecture>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
@@ -109,16 +111,16 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\tools\sdk\include;$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\tools\sdk\lwip2\include;$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\cores\\esp8266;$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\3.1.2\\variants\\generic;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\xtensa-lx106-elf\include\c++\10.3.0;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\xtensa-lx106-elf\include\c++\10.3.0\xtensa-lx106-elf;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\xtensa-lx106-elf\include\c++\10.3.0\backward;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\lib\gcc\xtensa-lx106-elf\10.3.0\include;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\lib\gcc\xtensa-lx106-elf\10.3.0\include-fixed;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\3.1.0-gcc10.3-e5f9fec\xtensa-lx106-elf\include;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\Wire;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\SPI;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\3.1.2\libraries\SD\src;$(ProjectDir)..\..\..\Users\LENOVO\OneDrive\Documents\arduino test\libraries\RTClib\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <GccToolChain>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\xtensa-lx106-elf-gcc\\3.1.0-gcc10.3-e5f9fec\bin\xtensa-lx106-elf-g++</GccToolChain>
-      <CppLanguageStandard>c++17</CppLanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino;$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\lib\gcc\avr\7.3.0\include-fixed;$(ProjectDir)..\..\..\users\lenovo\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\include;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire\src;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire\src\utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <GccToolChain>$(ProjectDir)..\..\..\\Users\\LENOVO\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7\bin\avr-g++</GccToolChain>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
       <CLanguageStandard>gnu11</CLanguageStandard>
       <CAdditionalWarning />
       <CppAdditionalWarning />
-      <ForcedIncludeFiles>$(ProjectDir)..\..\..\program files\microsoft visual studio\2022\community\common7\ide\extensions\z0o5xb5o.0fx\Micro Platforms\default\vm-intelli-pre.h;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Temp\VMBuilds\Intern_HomeOS_RTC\esp8266_generic\Debug\.vmintelli\3b5a29cf02f4d0f1d528ac8d07b94ab2\vm-intelli-gcc-defines.h;$(ProjectDir)..\..\..\program files\microsoft visual studio\2022\community\common7\ide\extensions\z0o5xb5o.0fx\Micro Platforms\default\vm-intelli-post.h;$(ProjectDir)__vm\.Intern_HomeOS_RTC.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(ProjectDir)..\..\..\program files\microsoft visual studio\2022\community\common7\ide\extensions\z0o5xb5o.0fx\Micro Platforms\default\vm-intelli-pre.h;$(ProjectDir)..\..\..\Users\LENOVO\AppData\Local\Temp\VMBuilds\Intern_HomeOS_RTC\uno\Debug\.vmintelli\81fa413000a782460218e66431678a7d\vm-intelli-gcc-defines.h;$(ProjectDir)..\..\..\program files\microsoft visual studio\2022\community\common7\ide\extensions\z0o5xb5o.0fx\Micro Platforms\default\vm-intelli-post.h;$(ProjectDir)__vm\.Intern_HomeOS_RTC.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <UndefineAllPreprocessorDefinitions>true</UndefineAllPreprocessorDefinitions>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>_VMICRO_INTELLISENSE;__ESP8266_esp8266__;__ESP8266_ESP8266__;__ets__;ICACHE_FLASH;_GNU_SOURCE;ESP8266;MMU_IRAM_SIZE=0x8000;MMU_ICACHE_SIZE=0x8000;NONOSDK22x_190703=1;F_CPU=80000000L;LWIP_OPEN_SRC;TCP_MSS=536;LWIP_FEATURES=1;LWIP_IPV6=0;ARDUINO=108010;ARDUINO_ESP8266_GENERIC;ARDUINO_ARCH_ESP8266;ARDUINO_BOARD=ESP8266_GENERIC;ARDUINO_BOARD_ID=generic;LED_BUILTIN=2;FLASHMODE_DOUT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_VMICRO_INTELLISENSE;__AVR_atmega328p__;__AVR_ATmega328P__;__AVR_ATmega328p__;F_CPU=16000000L;ARDUINO=108010;ARDUINO_AVR_UNO;ARDUINO_ARCH_AVR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
@@ -126,7 +128,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties arduino.upload.port="COM3" config.Debug.customdebug_esp32_esp32da_debugger_type="universal" config.Debug.customdebug_esp32_esp32doit-devkit-v1_debugger_type="universal" config.Debug.customdebug_esp8266_generic_debugger_type="universal" config.Debug.customdebug_uno_debugger_type="universal" />
+      <UserProperties arduino.upload.port="COM3" config.Debug.customdebug_uno_debugger_type="universal" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

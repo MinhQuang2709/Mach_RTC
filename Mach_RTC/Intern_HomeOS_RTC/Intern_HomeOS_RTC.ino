@@ -48,6 +48,7 @@ void setup()
     }
 
     Serial.println("The SD card and RTC have been initialized");
+    readByte();
 }
 
 void setTime()
@@ -150,6 +151,10 @@ void loop()
 
         File dataFile = SD.open("dateTime.txt", FILE_WRITE);
         if (dataFile) {
+
+
+
+
             dataFile.println(dataString);
             dataFile.close();
         }
