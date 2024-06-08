@@ -15,16 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Intern_HomeOS_RTC.ino" />
-    <ClCompile Include="readByte.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClCompile Include="Intern_HomeOS_Giao_thuc_MTTQ.ino" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="__vm\.Intern_HomeOS_RTC.vsarduino.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="readByte.h">
+    <ClInclude Include="__vm\.Intern_HomeOS_Giao_thuc_MTTQ.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
